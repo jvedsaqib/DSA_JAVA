@@ -51,6 +51,23 @@ public class BST {
 				stack.push(temp.left);
 		}
 	}
+	
+	
+	public void inOrder(TreeNode root) {
+		if (root == null)
+			return;
+		inOrder(root.left);
+		System.out.print(root.data + " ");
+		inOrder(root.right);
+	}
+	
+	public void inOrderIT(TreeNode root) {
+		
+	}
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 		
@@ -60,6 +77,10 @@ public class BST {
 		obj.preOrder(obj.root);
 		System.out.println();
 		obj.preOrderIT(obj.root);
+		System.out.println();
+		obj.inOrder(obj.root);
+		System.out.println();
+		obj.inOrderIT(obj.root);
 
 	}
 
