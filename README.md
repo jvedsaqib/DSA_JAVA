@@ -34,5 +34,5 @@ This repo contains the following programs :
     
   6. Binary Search Tree:
   
-    6-1. BST implementation, preOrder traversal, inOrder traversal, postOrder traversal
+    6-1. BST implementation, preOrder traversal, inOrder traversal, postOrder traversal, levelOrder traversal
     
