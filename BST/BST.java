@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BST {
@@ -19,7 +21,7 @@ public class BST {
 	public void create() {
 		TreeNode n1 = new TreeNode(6);
 		TreeNode n2 = new TreeNode(5);
-		TreeNode n3 = new TreeNode(4);
+		TreeNode n3 = new TreeNode(9);
 		TreeNode n4 = new TreeNode(3);
 		
 		root = n1;
@@ -131,6 +133,20 @@ public class BST {
 		
 	}
 	
+	public int maxValue(TreeNode root) {
+		if(root == null)
+			return 0;
+		int result = root.data;
+		int left = maxValue(root.left);
+		int right = maxValue(root.right);
+		
+		if(left > result)
+			result = left;
+		if(right > result)
+			result = right;
+		return result;
+	}
+	
 	
 
 	public static void main(String[] args) {
@@ -158,7 +174,10 @@ public class BST {
 		System.out.println();
 		System.out.println("levelOrder:");
 		obj.levelOrder(obj.root);
-
+		System.out.println();
+		
+		int max = obj.maxValue(obj.root);
+		System.out.println("Max value - " + max);
 	}
 
 }
