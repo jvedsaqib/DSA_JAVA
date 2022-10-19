@@ -32,7 +32,7 @@ This repo contains the following programs :
     
     5-2. Graph adjacancy list, dfs, bfs
     
-  6. Binary Search Tree:
+  6. Binary Tree:
   
-    6-1. BST implementation, preOrder traversal, inOrder traversal, postOrder traversal, levelOrder traversal, maxValue
+    6-1. BT implementation, preOrder traversal, inOrder traversal, postOrder traversal, levelOrder traversal, maxValue
     
