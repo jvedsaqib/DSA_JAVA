@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class BST {
+public class BT {
 	
 	private TreeNode root;
 	
@@ -151,7 +151,7 @@ public class BST {
 
 	public static void main(String[] args) {
 		
-		BST obj = new BST();
+		BT obj = new BT();
 		
 		obj.create();
 		System.out.println("preOrder Rec:");
