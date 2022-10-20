@@ -36,3 +36,5 @@ This repo contains the following programs :
   
     6-1. BT implementation, preOrder traversal, inOrder traversal, postOrder traversal, levelOrder traversal, maxValue
     
+    6-2. Binary Search Tree - implementation, inOrder traversal
+    
