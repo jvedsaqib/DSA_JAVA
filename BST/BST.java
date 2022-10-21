@@ -1,5 +1,5 @@
 package tree;
-
+import java.util.*;
 
 public class BST {
 	static TreeNode root;
@@ -51,9 +51,22 @@ public class BST {
 		inOrder(root.right);
 	}
 	
+	public TreeNode searchNode(TreeNode root, int key) {
+		if(root == null || root.data == key)
+			return root;
+		if(key < root.data)
+			return searchNode(root.left, key);
+		else
+			return searchNode(root.right, key);
+		
+	}
+	
+	
+	
 
 	public static void main(String[] args) {
 		BST obj = new BST();
+		Scanner sc = new Scanner(System.in);
 		
 		obj.insert(8);
 		obj.insert(9);
@@ -62,7 +75,18 @@ public class BST {
 		obj.insert(19);
 		
 		obj.inOrder(root);
-
+		System.out.println();
+		
+		System.out.println("Enter the node to search: ");
+		int key = sc.nextInt();
+		TreeNode node = obj.searchNode(root, key);
+		
+		if(node != null) 
+			System.out.println("Found");
+		else
+			System.out.println("Not Found");
+		
+		
 	}
 
 }
