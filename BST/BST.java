@@ -61,6 +61,20 @@ public class BST {
 		
 	}
 	
+	public boolean isLeftChild(TreeNode root) {
+		if(root.left != null)
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean isRightChild(TreeNode root) {
+		if(root.right != null)
+			return true;
+		else
+			return false;
+	}
+	
 	
 	
 
@@ -85,6 +99,12 @@ public class BST {
 			System.out.println("Found");
 		else
 			System.out.println("Not Found");
+		
+		System.out.println("Enter the node to search for its child: ");
+		key = sc.nextInt();
+		System.out.println("Left Child : " + obj.isLeftChild(obj.searchNode(root, key)));
+		System.out.println("Right Child : " + obj.isRightChild(obj.searchNode(root, key)));
+		
 		
 		
 	}
