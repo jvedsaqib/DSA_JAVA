@@ -17,7 +17,7 @@ public class BST {
 	
 	public static String[] qnArr() {
 		String q_str[] = {"(0) Exit", "(1) insert a node", "(2) inOrder traversal" , "(3) preOrder traversal",
-				"(4) search a Node", "(5) isChild"};
+				"(4) search a Node", "(5) isChild", "(6) Delete a Node"};
 		return q_str;
 	}
 	
@@ -81,6 +81,81 @@ public class BST {
 			return false;
 	}
 	
+	public static void deleteNode(TreeNode root, int key) {
+		
+		if(root == null || root.data == key)
+			return;
+		
+		TreeNode temp = root;
+		TreeNode parent = null;
+		
+		// case - 1
+		while(temp != null) {
+			if(temp.data > key) {
+				System.out.println("TRAVERSING LEFT :: "+temp.data+" -> "+temp.left.data);
+				// traverse left
+				parent = temp;
+				temp = temp.left;
+				if(temp.data == key && !isLeftChild(temp) && !isRightChild(temp)) {
+					System.out.println(temp.data+" has no child");
+					parent.left = null;
+					System.out.println(temp.data+" DELETED");
+					temp = null;
+				}
+				else if(temp.data == key) {
+					if( !isLeftChild(temp) || !isRightChild(temp)) {
+						System.out.println(temp.data+" has one child");
+						if(isLeftChild(temp)) {
+							System.out.println(temp.data+" has left child");
+							parent.left = temp.left;
+							System.out.println(parent.data+" <-> "+temp.left.data);
+							System.out.println(temp.data+" DELETED");
+							temp = null;
+						}
+						else if(isRightChild(temp)) {
+							System.out.println(temp.data+" has right child");
+							parent.right = temp.right;
+							System.out.println(parent.data+" <-> "+temp.right.data);
+							System.out.println(temp.data+" DELETED");
+							temp = null;
+						}
+					}
+				}
+			}
+			else if(temp.data < key) {
+				// traverse right
+				System.out.println("TRAVERSING RIGHT :: "+temp.data+" -> "+temp.right.data);
+				parent = temp;
+				temp = temp.right;
+				if(temp.data == key && !isLeftChild(temp) && !isRightChild(temp)) {
+					System.out.println(temp.data+" has no child");
+					parent.right = null;
+					System.out.println(temp.data+" DELETED");
+					temp = null;
+				}
+				else if(temp.data == key) {
+					if(!isLeftChild(temp) || !isRightChild(temp)) {
+						System.out.println(temp.data+" has one child");
+						if(isLeftChild(temp)) {
+							System.out.println(temp.data+" has left child");
+							parent.right = temp.left;
+							System.out.println(parent.data+" <-> "+temp.left.data);
+							System.out.println(temp.data+" DELETED");
+							temp = null;
+						}
+						else if(isRightChild(temp)) {
+							System.out.println(temp.data+" has right child");
+							parent.right = temp.right;
+							System.out.println(parent.data+" <-> "+temp.right.data);
+							System.out.println(temp.data+" DELETED");
+							temp = null;
+						}
+					}
+				}
+			}	
+		}
+	}
+	
 	
 	
 
@@ -130,6 +205,12 @@ public class BST {
 					System.out.println("Left Child : " + isLeftChild(searchNode(root, key)));
 					System.out.println("Right Child : " + isRightChild(searchNode(root, key)));
 					break;
+				case 6:
+					System.out.println("Enter the node to delete: ");
+					key = sc.nextInt();
+					deleteNode(root, key);
+					break;
+					
 				default:
 					System.out.println("INVALID");
 			}
