@@ -17,7 +17,7 @@ public class BST {
 	
 	public static String[] qnArr() {
 		String q_str[] = {"(0) Exit", "(1) insert a node", "(2) inOrder traversal" , "(3) preOrder traversal",
-				"(4) search a Node", "(5) isChild", "(6) Delete a Node"};
+				"(4) search a Node", "(5) isChild", "(6) Delete a Node", "(7) getSuccesor", "(8) searchNodeParent"};
 		return q_str;
 	}
 	
@@ -65,6 +65,35 @@ public class BST {
 		else
 			return searchNode(root.right, key);
 		
+	}
+	
+	public static TreeNode searchNodeParent(TreeNode root, int key) {
+		TreeNode temp = root;
+		TreeNode parent = root;
+		
+		if(temp == null)
+			return null;
+		
+		while(temp != null || temp.data != key) {
+			if(temp.data > key) {
+				System.out.println("TRAVERSING LEFT");
+				parent = temp;
+				temp = temp.left;
+				System.out.println(parent.data+" <- PARENT - NODE -> "+temp.data);
+			}
+			else if(temp.data < key) {
+				System.out.println("TRAVERSING RIGHT");
+				parent = temp;
+				temp = temp.right;
+				System.out.println(parent.data+" <- PARENT - NODE -> "+temp.data);
+			}
+			
+			if(temp.data == key)
+				break;
+		}
+		
+		
+		return parent;
 	}
 	
 	public static boolean isLeftChild(TreeNode root) {
@@ -120,6 +149,19 @@ public class BST {
 							temp = null;
 						}
 					}
+					else if(temp.data == key && parent.left.data == key) {
+						if( isLeftChild(temp) && isRightChild(temp)) {
+							System.out.println(temp.data+" has two child");
+							// get successor and replace it with the node that will be deleted
+							System.out.println(temp.data+" DELETED");
+							int node = getSuccesor(temp.right).data;
+							System.out.println(parent.data+" <-> "+node);
+							temp = searchNodeParent(root, getSuccesor(temp.right).data);
+							parent.left.data = node;
+							temp.left = null;
+							break;
+						}
+					}
 				}
 			}
 			else if(temp.data < key) {
@@ -151,10 +193,31 @@ public class BST {
 							temp = null;
 						}
 					}
+					else if(temp.data == key && parent.right.data == key) {
+						if( isLeftChild(temp) && isRightChild(temp)) {
+							System.out.println(temp.data+" has two child");
+							// get successor and replace it with the node that will be deleted
+							System.out.println(temp.data+" DELETED");
+							int node = getSuccesor(temp.right).data;
+							System.out.println(parent.data+" <-> "+node);
+							temp = searchNodeParent(root, getSuccesor(temp.right).data);
+							parent.right.data = node;
+							temp.right = null;
+							break;
+						}
+					}
 				}
 			}	
 		}
 	}
+	
+	
+	public static TreeNode getSuccesor(TreeNode root) {
+		if(root.left == null)
+			return root;
+		return getSuccesor(root.left);
+	}
+	
 	
 	
 	
@@ -210,6 +273,18 @@ public class BST {
 					key = sc.nextInt();
 					deleteNode(root, key);
 					break;
+				case 7:
+					System.out.println("Enter the node to search: ");
+					key = sc.nextInt();
+					System.out.println(getSuccesor(searchNode(root, key).right).data);
+					break;
+				case 8:
+					System.out.println("Enter the node to search its parent: ");
+					key = sc.nextInt();
+					TreeNode parent = searchNodeParent(root, key);
+					System.out.println("PARENT - "+ parent.data);
+					break;
+				
 					
 				default:
 					System.out.println("INVALID");
