@@ -17,7 +17,8 @@ public class BST {
 	
 	public static String[] qnArr() {
 		String q_str[] = {"(0) Exit", "(1) insert a node", "(2) inOrder traversal" , "(3) preOrder traversal",
-				"(4) search a Node", "(5) isChild", "(6) Delete a Node", "(7) getSuccesor", "(8) searchNodeParent"};
+				"(4) search a Node", "(5) isChild", "(6) Delete a Node", "(7) getSuccesor", "(8) searchNodeParent"
+				, "(9) getPredecessor"};
 		return q_str;
 	}
 	
@@ -213,9 +214,20 @@ public class BST {
 	
 	
 	public static TreeNode getSuccesor(TreeNode root) {
+		if(root == null)
+			return root;
 		if(root.left == null)
 			return root;
 		return getSuccesor(root.left);
+	}
+	
+	
+	public static TreeNode getPredecessor(TreeNode root) {
+		if(root == null)
+			return root;
+		if(root.right == null)
+			return root;
+		return getPredecessor(root.right);
 	}
 	
 	
@@ -283,6 +295,11 @@ public class BST {
 					key = sc.nextInt();
 					TreeNode parent = searchNodeParent(root, key);
 					System.out.println("PARENT - "+ parent.data);
+					break;
+				case 9:
+					System.out.println("Enter the node to search: ");
+					key = sc.nextInt();
+					System.out.println(getPredecessor(searchNode(root, key).left).data);
 					break;
 				
 					
