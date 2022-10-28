@@ -3,6 +3,7 @@ import java.util.*;
 
 public class BST {
 	static TreeNode root;
+	private static int count;
 	
 	private static class TreeNode{
 		private TreeNode left;
@@ -15,15 +16,24 @@ public class BST {
 		}
 	}
 	
+	public static void setCount(int count) {
+		BST.count += count;
+	}
+	
+	public static int getCount() {
+		return BST.count;
+	}
+	
 	public static String[] qnArr() {
 		String q_str[] = {"(0) Exit", "(1) insert a node", "(2) inOrder traversal" , "(3) preOrder traversal",
 				"(4) search a Node", "(5) isChild", "(6) Delete a Node", "(7) getSuccesor", "(8) searchNodeParent"
-				, "(9) getPredecessor"};
+				, "(9) getPredecessor", "(10) totalNodes"};
 		return q_str;
 	}
 	
 	public static void insert(int value) {
 		root = insertNode(root, value);
+		setCount(1);
 	}
 	
 	public static TreeNode insertNode(TreeNode root, int value) {
@@ -301,7 +311,9 @@ public class BST {
 					key = sc.nextInt();
 					System.out.println(getPredecessor(searchNode(root, key).left).data);
 					break;
-				
+				case 10:
+					System.out.println("Total Nodes - " + getCount());
+					break;
 					
 				default:
 					System.out.println("INVALID");
