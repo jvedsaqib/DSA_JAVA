@@ -28,7 +28,9 @@ This repo contains the following programs :
     4-2. Bubble Sort
     
     4-3. Insertion Sort
-    
+    4-4. Merge Sort
+
+
   5. Graph:
     
     5-1. Graph adjacancy matrix
