@@ -30,6 +30,8 @@ This repo contains the following programs :
     4-3. Insertion Sort
     
     4-4. Selection Sort
+    
+    4-5. Linear Search
 
   5. Graph:
     
