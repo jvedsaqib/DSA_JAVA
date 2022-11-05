@@ -51,3 +51,7 @@ This repo contains the following programs :
 
     7-1. Trie implementation, insert
     
+  8. String:
+    
+    8-1. String subsequence
+    
