@@ -10,6 +10,8 @@ This repo contains the following programs :
     
     1-2. Square of a sorted array
     
+    1-3. Kadane Algorithm
+    
   2. LinkedList:
     
     2-1. SinglyLinkedList and some functions - display, getSize, getHead, getLast, addNodeAtFront, addNodeAtLast, deleteNodeAtFront, deleteNodeAtLast, addNodeAtSpecificPosition, deleteNodeAtSpecificPosition, searchNode, reverseList
