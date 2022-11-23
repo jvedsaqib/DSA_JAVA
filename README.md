@@ -16,6 +16,8 @@ This repo contains the following programs :
     
     1-5. Reversal Algorithm
     
+    1-6. Cyclically Rotate
+    
   2. LinkedList:
     
     2-1. SinglyLinkedList and some functions - display, getSize, getHead, getLast, addNodeAtFront, addNodeAtLast, deleteNodeAtFront, deleteNodeAtLast, addNodeAtSpecificPosition, deleteNodeAtSpecificPosition, searchNode, reverseList
