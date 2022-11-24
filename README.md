@@ -18,6 +18,8 @@ This repo contains the following programs :
     
     1-6. Cyclically Rotate
     
+    1-7. Search on a sorted and rotated array
+    
   2. LinkedList:
     
     2-1. SinglyLinkedList and some functions - display, getSize, getHead, getLast, addNodeAtFront, addNodeAtLast, deleteNodeAtFront, deleteNodeAtLast, addNodeAtSpecificPosition, deleteNodeAtSpecificPosition, searchNode, reverseList
